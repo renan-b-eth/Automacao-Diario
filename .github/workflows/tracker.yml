@@ -25,9 +25,8 @@ jobs:
       - name: Executar tracker
         env:
           MEU_NOME: ${{ secrets.MEU_NOME }}
-          URLS_EDITAIS: ${{ secrets.URLS_EDITAIS }}
-          CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
-          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          CALLMEBOT_PHONE: ${{ secrets.PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.API_KEY }}
         run: python tracker_aprovacao.py
 
       - name: Persistir histórico de PDFs

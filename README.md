@@ -1,28 +1,38 @@
 # 🎯 Bot de Rastreamento de Concursos ETEC/FATEC
 
-Bot pessoal em Python que monitora páginas de editais do CPS (URH) em busca de novos PDFs publicados e verifica automaticamente se o seu nome aparece nos documentos. Notificações via WhatsApp (CallMeBot).
+Crawler autônomo em Python que monitora **todas** as páginas de processos seletivos e concursos públicos do CPS (URH) — ETEC e FATEC — em busca de novos documentos publicados (PDF e DOCX). Verifica automaticamente se o seu nome aparece e envia notificações via WhatsApp (CallMeBot).
 
 ## Como funciona
 
-1. Acessa cada URL de edital configurada
-2. Identifica todos os links de PDF na página
-3. Compara com `history_pdfs.json` para detectar novos arquivos
-4. Baixa PDFs novos **na memória** e extrai o texto com `pdfplumber`
-5. Busca pelo seu nome (case insensitive)
-6. Envia notificação via WhatsApp:
+1. **Descoberta automática:** Acessa as 11 páginas de listagem do portal CPS (Inscrições Abertas + Em Andamento) para ETEC, FATEC e PSSAD
+2. **Extração de processos:** Identifica todos os links de detalhes de processos seletivos em cada listagem
+3. **Varredura profunda:** Para cada processo, coleta os links de documentos (PDF e DOCX) — editais, classificações, convocações, etc.
+4. **Cache inteligente:** Compara com `history_pdfs.json` — documentos já processados são ignorados
+5. **Análise de texto:** Baixa documentos novos **na memória** e busca pelo seu nome (case insensitive)
+6. **Notificação via WhatsApp:**
    - 🚨 **Nome encontrado** → alerta de aprovação/convocação
-   - ⚠️ **Arquivo novo sem nome** → alerta de nova movimentação
+   - ⚠️ **Documento novo sem nome** → alerta de nova movimentação
+
+### Páginas monitoradas
+
+| Categoria | Tipo | Páginas |
+|---|---|---|
+| ETEC | PSS (Processo Seletivo Simplificado) | Inscrições Abertas + Em Andamento |
+| ETEC | CPD (Concurso Público Docente) | Inscrições Abertas + Em Andamento |
+| ETEC | Auxiliar de Docente | Em Andamento |
+| FATEC | PSS | Inscrições Abertas + Em Andamento |
+| FATEC | CPD | Inscrições Abertas + Em Andamento |
+| PSSAD | Auxiliar de Docente (ETEC/FATEC) | Inscrições Abertas + Em Andamento |
 
 ## Configuração
 
-### 1. Variáveis de ambiente / GitHub Secrets
+### 1. GitHub Secrets
 
-| Variável | Descrição | Exemplo |
+| Secret | Descrição | Exemplo |
 |---|---|---|
-| `MEU_NOME` | Nome completo a ser buscado nos PDFs | `Renan Bezerra dos Santos` |
-| `URLS_EDITAIS` | URLs das páginas de acompanhamento, separadas por vírgula | `https://urhsistemas.cps.sp.gov.br/...` |
-| `CALLMEBOT_PHONE` | Seu número de telefone (com DDI) | `5511999999999` |
-| `CALLMEBOT_APIKEY` | API key do CallMeBot | `123456` |
+| `MEU_NOME` | Nome completo a ser buscado nos documentos | `Renan Bezerra dos Santos` |
+| `PHONE` | Seu número de telefone com DDI (CallMeBot) | `5511999999999` |
+| `API_KEY` | API key do CallMeBot | `123456` |
 
 ### 2. Configurar CallMeBot
 
@@ -35,9 +45,8 @@ Bot pessoal em Python que monitora páginas de editais do CPS (URH) em busca de 
 No repositório GitHub, vá em **Settings → Secrets and variables → Actions** e adicione:
 
 - `MEU_NOME`
-- `URLS_EDITAIS`
-- `CALLMEBOT_PHONE`
-- `CALLMEBOT_APIKEY`
+- `PHONE`
+- `API_KEY`
 
 ### 4. Execução
 
@@ -50,7 +59,6 @@ No repositório GitHub, vá em **Settings → Secrets and variables → Actions*
 pip install -r requirements.txt
 
 export MEU_NOME="Renan Bezerra dos Santos"
-export URLS_EDITAIS="https://url1.com,https://url2.com"
 export CALLMEBOT_PHONE="5511999999999"
 export CALLMEBOT_APIKEY="sua_apikey"
 
@@ -60,9 +68,9 @@ python tracker_aprovacao.py
 ## Estrutura
 
 ```
-├── tracker_aprovacao.py      # Script principal
+├── tracker_aprovacao.py      # Crawler autônomo + analisador de documentos
 ├── requirements.txt          # Dependências Python
-├── history_pdfs.json         # Histórico de PDFs já processados (persistido pelo CI)
+├── history_pdfs.json         # Histórico de documentos já processados (persistido pelo CI)
 ├── README.md
 └── .github/
     └── workflows/
