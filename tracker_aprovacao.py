@@ -4,6 +4,9 @@ Bot de Rastreamento de Concursos ETEC/FATEC
 Crawler autônomo que descobre processos seletivos no portal do CPS (URH),
 baixa documentos publicados e verifica se o nome do candidato aparece.
 
+Também monitora o Diário Oficial do Estado de SP (DOE SP) buscando
+citações do nome do candidato em publicações oficiais.
+
 Extrai metadados (edital, unidade, cidade, disciplina) e identifica
 a fase do processo (Abertura → Classificação → Convocação…).
 
@@ -15,6 +18,7 @@ import json
 import os
 import re
 import time
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -112,6 +116,121 @@ def classify_phase(doc_name: str, doc_url: str) -> str:
         if re.search(pattern, combined, re.IGNORECASE):
             return phase_label
     return "📄 Documento"
+
+
+# ──────────────────────────────────────────────
+# DIÁRIO OFICIAL DO ESTADO DE SP (DOE SP)
+# API pública: do-api-web-search.doe.sp.gov.br
+# ──────────────────────────────────────────────
+
+DOE_API_BASE = "https://do-api-web-search.doe.sp.gov.br"
+DOE_SITE_BASE = "https://www.doe.sp.gov.br"
+
+# ID do caderno "Executivo" no DOE SP
+DOE_JOURNAL_EXECUTIVO = "ca96256b-6ca1-407f-866e-567ef9430123"
+
+# Quantos dias para trás buscar no DOE (janela de busca)
+DOE_SEARCH_DAYS = 30
+
+# Máximo de resultados por página na API do DOE
+DOE_PAGE_SIZE = 20
+
+
+def search_doe_sp(name: str, history: dict) -> tuple[dict, int]:
+    """
+    Busca o nome do candidato no Diário Oficial do Estado de SP
+    via API pública. Retorna (history atualizado, qtd novos).
+    """
+    today = datetime.now()
+    from_date = (today - timedelta(days=DOE_SEARCH_DAYS)).strftime("%Y-%m-%d")
+    to_date = today.strftime("%Y-%m-%d")
+
+    new_count = 0
+    page = 1
+
+    while True:
+        params = {
+            "Terms": name,
+            "FromDate": from_date,
+            "ToDate": to_date,
+            "JournalId": DOE_JOURNAL_EXECUTIVO,
+            "PageNumber": page,
+            "PageSize": DOE_PAGE_SIZE,
+            "SortField": "Date",
+        }
+
+        try:
+            resp = requests.get(
+                f"{DOE_API_BASE}/v2/advanced-search/publications",
+                params=params,
+                headers=HEADERS,
+                timeout=REQUEST_TIMEOUT,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        except (requests.RequestException, ValueError) as e:
+            print(f"  [ERRO] Falha na busca DOE SP (página {page}): {e}")
+            break
+
+        items = data.get("items", [])
+        if not items:
+            break
+
+        for item in items:
+            pub_id = item.get("id", "")
+            doe_key = f"doe:{pub_id}"
+
+            if doe_key in history:
+                continue
+
+            title = item.get("title", "Sem título")
+            slug = item.get("slug", "")
+            hierarchy = item.get("hierarchy", "")
+            excerpt = item.get("excerpt", "")
+            pub_date = item.get("date", "")[:10]
+            pub_url = f"{DOE_SITE_BASE}/{slug}" if slug else ""
+            matches = item.get("totalTermsFound", 0)
+
+            print(f"    [DOE NOVO] {title}")
+            print(f"      Hierarquia: {hierarchy}")
+            print(f"      Menções: {matches}")
+
+            history[doe_key] = {
+                "source": "DOE-SP",
+                "title": title,
+                "date": pub_date,
+                "hierarchy": hierarchy,
+                "url": pub_url,
+                "matches": matches,
+                "found_name": True,
+            }
+            new_count += 1
+
+            # Montar mensagem WhatsApp
+            msg = (
+                "📰 *SEU NOME NO DIÁRIO OFICIAL!* 📰\n\n"
+                f"📌 *Publicação:* {title}\n"
+                f"📅 *Data:* {pub_date}\n"
+                f"🏛️ *Seção:* {hierarchy}\n"
+                f"🔎 *Menções encontradas:* {matches}\n"
+            )
+            if excerpt:
+                # Limitar excerpt para não estourar mensagem
+                short_excerpt = excerpt[:300]
+                if len(excerpt) > 300:
+                    short_excerpt += "…"
+                msg += f"📝 *Trecho:* _{short_excerpt}_\n"
+            if pub_url:
+                msg += f"🔗 *Link:* {pub_url}"
+
+            send_whatsapp(msg)
+
+        # Próxima página
+        if not data.get("hasNextPage", False):
+            break
+        page += 1
+
+    return history, new_count
 
 
 # ──────────────────────────────────────────────
@@ -487,6 +606,20 @@ def main() -> None:
             old_count = len(history)
             history = process_detail_page(detail_url, label, history)
             total_new += len(history) - old_count
+
+    # ── FASE 2: Diário Oficial do Estado de SP ──
+    print(f"\n{'='*60}")
+    print(f"[DOE SP] Buscando nome no Diário Oficial do Estado de SP")
+    print(f"  Período: últimos {DOE_SEARCH_DAYS} dias")
+    print(f"{'='*60}")
+
+    history, doe_new = search_doe_sp(MEU_NOME, history)
+    total_new += doe_new
+
+    if doe_new == 0:
+        print("  Nenhuma publicação nova encontrada no DOE SP.")
+    else:
+        print(f"  {doe_new} publicação(ões) nova(s) no DOE SP.")
 
     save_history(history)
     print(f"\n{'='*60}")

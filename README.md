@@ -1,28 +1,41 @@
 # 🎯 Bot de Rastreamento de Concursos ETEC/FATEC
 
-Crawler autônomo em Python que monitora **todas** as páginas de processos seletivos e concursos públicos do CPS (URH) — ETEC e FATEC — em busca de novos documentos publicados (PDF e DOCX). Verifica automaticamente se o seu nome aparece e envia notificações via WhatsApp (CallMeBot).
+Crawler autônomo em Python que monitora **todas** as páginas de processos seletivos e concursos públicos do CPS (URH) — ETEC e FATEC — e o **Diário Oficial do Estado de SP (DOE SP)** em busca do seu nome. Envia notificações detalhadas via WhatsApp (CallMeBot) com edital, unidade, cidade, disciplina e fase do processo.
 
 ## Como funciona
 
+### Fase 1 — Portal CPS (URH)
+
 1. **Descoberta automática:** Acessa as 11 páginas de listagem do portal CPS (Inscrições Abertas + Em Andamento) para ETEC, FATEC e PSSAD
 2. **Extração de processos:** Identifica todos os links de detalhes de processos seletivos em cada listagem
-3. **Varredura profunda:** Para cada processo, coleta os links de documentos (PDF e DOCX) — editais, classificações, convocações, etc.
-4. **Cache inteligente:** Compara com `history_pdfs.json` — documentos já processados são ignorados
-5. **Análise de texto:** Baixa documentos novos **na memória** e busca pelo seu nome (case insensitive)
-6. **Notificação via WhatsApp:**
-   - 🚨 **Nome encontrado** → alerta de aprovação/convocação
-   - ⚠️ **Documento novo sem nome** → alerta de nova movimentação
+3. **Metadados:** Extrai nº do edital, unidade de ensino (ETEC/FATEC), cidade e disciplina
+4. **Classificação de fase:** Identifica automaticamente a fase do documento (Abertura → Deferimento → Classificação → Convocação…)
+5. **Varredura profunda:** Para cada processo, coleta os links de documentos (PDF e DOCX) — editais, classificações, convocações, etc.
+6. **Análise de texto:** Baixa documentos novos **na memória** e busca pelo seu nome (case insensitive)
 
-### Páginas monitoradas
+### Fase 2 — Diário Oficial do Estado de SP (DOE SP)
 
-| Categoria | Tipo | Páginas |
-|---|---|---|
-| ETEC | PSS (Processo Seletivo Simplificado) | Inscrições Abertas + Em Andamento |
-| ETEC | CPD (Concurso Público Docente) | Inscrições Abertas + Em Andamento |
-| ETEC | Auxiliar de Docente | Em Andamento |
-| FATEC | PSS | Inscrições Abertas + Em Andamento |
-| FATEC | CPD | Inscrições Abertas + Em Andamento |
-| PSSAD | Auxiliar de Docente (ETEC/FATEC) | Inscrições Abertas + Em Andamento |
+7. **Busca via API:** Consulta a API pública do DOE SP buscando seu nome no caderno Executivo (últimos 30 dias)
+8. **Publicações oficiais:** Detecta nomeações, convocações, homologações e qualquer citação do seu nome no Diário Oficial
+
+### Notificações
+
+- 🚨 **Nome encontrado no CPS** → alerta com edital, unidade, cidade, disciplina e fase
+- ⚠️ **Documento novo sem nome** → alerta de nova movimentação no processo
+- 📰 **Nome no DOE SP** → alerta com título, data, seção e trecho da publicação
+- **Cache inteligente:** `history_pdfs.json` evita notificações repetidas
+
+### Fontes monitoradas
+
+| Fonte | Categoria | Tipo | Páginas |
+|---|---|---|---|
+| CPS | ETEC | PSS (Processo Seletivo Simplificado) | Inscrições Abertas + Em Andamento |
+| CPS | ETEC | CPD (Concurso Público Docente) | Inscrições Abertas + Em Andamento |
+| CPS | ETEC | Auxiliar de Docente | Em Andamento |
+| CPS | FATEC | PSS | Inscrições Abertas + Em Andamento |
+| CPS | FATEC | CPD | Inscrições Abertas + Em Andamento |
+| CPS | PSSAD | Auxiliar de Docente (ETEC/FATEC) | Inscrições Abertas + Em Andamento |
+| DOE SP | Executivo | Busca textual por nome | Últimos 30 dias |
 
 ## Configuração
 
