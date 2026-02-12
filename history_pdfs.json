@@ -24469,5 +24469,14 @@
     "cidade": "Sorocaba ÁREA DE ATUAÇÃO: ELÉTRICA",
     "disciplina": "",
     "found_name": false
+  },
+  "doe:b2d4abe0-fd4a-4260-924c-08de699319d8": {
+    "source": "DOE-SP",
+    "title": "EDITAL Nº 07.01, DE 11 DE FEVEREIRO DE 2026",
+    "date": "2026-02-12",
+    "hierarchy": "Executivo > Atos de Gestão e Despesas > Secretaria de Ciência, Tecnologia e Inovação > Centro Estadual de Educação Tecnológica Paula Souza",
+    "url": "https://www.doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/edital-n-0701-de-11-de-fevereiro-de-2026-2026021113141461632582",
+    "matches": 2,
+    "found_name": true
   }
 }
