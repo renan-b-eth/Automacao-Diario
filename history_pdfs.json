@@ -25532,5 +25532,38 @@
     "cidade": "Santos ÁREA DE ATUAÇÃO: Informática",
     "disciplina": "",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\16\\016-01-2026-pss-EDITALDEABERTURAhenrique.santos13-02-202610h19min47s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=14431&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Inscrições Abertas",
+    "edital": "016/01/2026",
+    "unidade": "Escola Técnica Estadual Fernando Prestes",
+    "cidade": "Sorocaba",
+    "disciplina": "(02)_BIOLOGIA (BNCC/ ETIM / MTEC / EM COM ÊNFASES)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\16\\016-02-2026-pss-EDITALDEABERTURAhenrique.santos13-02-202610h22min18s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=14432&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Inscrições Abertas",
+    "edital": "016/02/2026",
+    "unidade": "Escola Técnica Estadual Fernando Prestes",
+    "cidade": "Sorocaba",
+    "disciplina": "LINGUAGEM, TRABALHO E TECNOLOGIA",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\16\\016-03-2026-pss-EDITALDEABERTURAhenrique.santos13-02-202610h24min58s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=14433&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Inscrições Abertas",
+    "edital": "016/03/2026",
+    "unidade": "Escola Técnica Estadual Fernando Prestes",
+    "cidade": "Sorocaba",
+    "disciplina": "INGLÊS INSTRUMENTAL",
+    "found_name": false
   }
 }
