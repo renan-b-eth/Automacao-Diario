@@ -27235,5 +27235,126 @@
     "url": "https://www.doe.sp.gov.br/executivo/secretaria-da-educacao/portaria-do-coordenador-geral-dirigente-de-ensino-de-24-02-2026-20260225121912132351659693",
     "matches": 1,
     "found_name": true
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoETEC\\CPD\\65\\065-01-2026-CPD-EDITALDEABERTURAnicole.oliveira25-02-202615h26min37s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/ETEC/CPD/detalhes.aspx?oljioahohafnav87412=12303&miji431dqd",
+    "listing": "ETEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "065/01/2026",
+    "unidade": "Escola Técnica Estadual de Ilha Solteira",
+    "cidade": "Ilha Solteira",
+    "disciplina": "Tecnologia em Soldagem",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\5\\005-01-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h09min11s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=14607&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "005/01/2026",
+    "unidade": "Faculdade de Tecnologia Rubens Lara",
+    "cidade": "Santos ÁREA DE ATUAÇÃO: INFORMÁTICA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\28\\028-01-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h16min05s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=7702&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "028/01/2026",
+    "unidade": "Escola Técnica Estadual Sebastiana Augusta de Moraes",
+    "cidade": "Andradina ÁREA DE ATUAÇÃO: Informática",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\60\\060-01-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h24min43s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=11522&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "060/01/2026",
+    "unidade": "Escola Técnica Estadual Francisco Garcia",
+    "cidade": "Mococa ÁREA DE ATUAÇÃO: QUÍMICA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\83\\083-02-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h21min38s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=14561&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "083/02/2026",
+    "unidade": "Escola Técnica Estadual Manoel Dos Reis Araújo",
+    "cidade": "Santa Rita do Passa Quatro ÁREA DE ATUAÇÃO: AGRÍCOLA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\166\\166-01-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h13min11s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=11495&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "166/01/2026",
+    "unidade": "Escola Técnica Estadual Juscelino Kubitschek de Oliveira",
+    "cidade": "Diadema ÁREA DE ATUAÇÃO: INFORMÁTICA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\243\\243-01-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h06min40s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=11642&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "243/01/2026",
+    "unidade": "Escola Técnica Estadual de Itararé",
+    "cidade": "Itararé ÁREA DE ATUAÇÃO: INFORMÁTICA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\246\\246-01-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h19min09s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=14565&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "246/01/2026",
+    "unidade": "Escola Técnica Estadual Doutor Nelson Alves Vianna",
+    "cidade": "Tietê ÁREA DE ATUAÇÃO: INFORMÁTICA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\246\\246-02-2026-PSSAD-EDITALDEABERTURAgiovanni.santos25-02-202609h23min19s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=14566&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "246/02/2026",
+    "unidade": "Escola Técnica Estadual Doutor Nelson Alves Vianna",
+    "cidade": "Tietê ÁREA DE ATUAÇÃO: QUÍMICA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\3\\003-01-2026-PSSAD-PORTARIABANCAEXAMINADORAdanielle.ferreira25-02-202610h26min18s.docx": {
+    "name": "PSSAD-BANCA EXAMINADORA",
+    "phase": "👥 Portaria da Banca Examinadora",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/PSSAD/detalhes.aspx?oljioahohafnav87412=11496&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Em Andamento",
+    "edital": "003/01/2026",
+    "unidade": "Faculdade de Tecnologia José Crespo Gonzales",
+    "cidade": "Sorocaba ÁREA DE ATUAÇÃO: INFORMÁTICA",
+    "disciplina": "",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\3\\003-02-2025-PSSAD-AFERIOCONVPPdanielle.ferreira25-02-202614h13min50s.docx": {
+    "name": "PSSAD - RESUL DA AFERIÇÃO E CONV PROVA PRÁTICA",
+    "phase": "📄 Documento",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/PSSAD/detalhes.aspx?oljioahohafnav87412=9843&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Em Andamento",
+    "edital": "003/02/2025",
+    "unidade": "Faculdade de Tecnologia José Crespo Gonzales",
+    "cidade": "Sorocaba ÁREA DE ATUAÇÃO: MECÂNICA",
+    "disciplina": "",
+    "found_name": false
   }
 }
