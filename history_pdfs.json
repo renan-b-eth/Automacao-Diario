@@ -27226,5 +27226,14 @@
     "cidade": "São Paulo ÁREA DE ATUAÇÃO: Construção Civil",
     "disciplina": "",
     "found_name": false
+  },
+  "doe:2691be95-8344-4a57-abec-08de72c95bd7": {
+    "source": "DOE-SP",
+    "title": "Portaria do Coordenador Geral Dirigente de Ensino de  24/02/2026",
+    "date": "2026-02-26",
+    "hierarchy": "Executivo > Atos de Pessoal > Secretaria da Educação > Unidades Regionais de Ensino  > Unidade Regional de Ensino Leste 2",
+    "url": "https://www.doe.sp.gov.br/executivo/secretaria-da-educacao/portaria-do-coordenador-geral-dirigente-de-ensino-de-24-02-2026-20260225121912132351659693",
+    "matches": 1,
+    "found_name": true
   }
 }
