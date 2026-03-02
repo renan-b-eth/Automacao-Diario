@@ -28630,5 +28630,27 @@
     "cidade": "Itanhaém ÁREA DE ATUAÇÃO: INFORMÁTICA",
     "disciplina": "",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoETEC\\CPD\\11\\011-05-2026-ResultadodasSolicitaesdeIsenopsrecurso.pdf": {
+    "name": "RETIFICAÇÃO - RESULTADO DAS SOLICITAÇÕES DE REDUÇÃO OU ISENÇÃO DA TAXA DE INSCRIÇÃO - NOVA DIVULGAÇÃO",
+    "phase": "💰 Resultado Redução/Isenção de Taxa",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/ETEC/CPD/detalhes.aspx?oljioahohafnav87412=11942&miji431dqd",
+    "listing": "ETEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "011/05/2026",
+    "unidade": "Escola Técnica Estadual Jorge Street",
+    "cidade": "São Caetano do Sul",
+    "disciplina": "Projetos de Tecnologia de Informação e Comunicação",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoETEC\\PSSAD\\84\\084-02-2026-PSSAD-RETIFICAO.docx": {
+    "name": "RETIFICAÇÃO - EDITAL DE REABERTURA DE INSCRIÇÕES",
+    "phase": "🔄 Reabertura de Inscrições",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=11362&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "084/02/2026",
+    "unidade": "Escola Técnica Estadual Orlando Quagliato",
+    "cidade": "Santa Cruz do Rio Pardo ÁREA DE ATUAÇÃO: QUÍMICA",
+    "disciplina": "",
+    "found_name": false
   }
 }
