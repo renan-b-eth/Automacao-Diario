@@ -27686,5 +27686,14 @@
     "cidade": "Marília",
     "disciplina": "ENGENHARIA DE SOFTWARE II",
     "found_name": false
+  },
+  "doe:4582da12-6df0-4355-967f-08de738cf5b8": {
+    "source": "DOE-SP",
+    "title": "EDITAL DIVERSOS Nº 05.02, DE 27 DE FEVEREIRO DE 2026",
+    "date": "2026-03-02",
+    "hierarchy": "Executivo > Atos de Gestão e Despesas > Secretaria de Ciência, Tecnologia e Inovação > Centro Estadual de Educação Tecnológica Paula Souza",
+    "url": "https://www.doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/edital-diversos-n-0502-de-27-de-fevereiro-de-2026-2026022713141461667856",
+    "matches": 1,
+    "found_name": true
   }
 }
