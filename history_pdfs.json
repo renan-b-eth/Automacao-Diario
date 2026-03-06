@@ -30984,5 +30984,49 @@
     "cidade": "Cotia",
     "disciplina": "GESTÃO DE PESSOAS",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\34\\034-13-2026-pss-EDITALDEABERTURAdanielle.ferreira05-03-202611h00min02s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=15009&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Inscrições Abertas",
+    "edital": "034/13/2026",
+    "unidade": "Escola Técnica Estadual Professor Aprígio Gonzaga",
+    "cidade": "São Paulo",
+    "disciplina": "(L)_QUÍMICA (BNCC/ ETIM / MTEC / EM COM ÊNFASES)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoETEC\\CPD\\7\\007-01-2026-CPD-EDITALDEABERTURAnicole.oliveira05-03-202615h36min06s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/ETEC/CPD/detalhes.aspx?oljioahohafnav87412=11898&miji431dqd",
+    "listing": "ETEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "007/01/2026",
+    "unidade": "Escola Técnica Estadual Conselheiro Antonio Prado",
+    "cidade": "Campinas",
+    "disciplina": "(11)_Matemática (BNCC/ ETIM / MTec / EM com Ênfases)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoETEC\\CPD\\7\\007-02-2026-CPD-EDITALDEABERTURAnicole.oliveira05-03-202615h46min20s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/ETEC/CPD/detalhes.aspx?oljioahohafnav87412=11900&miji431dqd",
+    "listing": "ETEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "007/02/2026",
+    "unidade": "Escola Técnica Estadual Conselheiro Antonio Prado",
+    "cidade": "Campinas",
+    "disciplina": "(05)_Física (BNCC/ ETIM / MTec / EM com Ênfases)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\2\\002-06-2025-PSSAD-CLASSIFICAOFINALdanielle.ferreira05-03-202608h59min49s.docx": {
+    "name": "PSSAD-CLASSIFICAÇÃO FINAL",
+    "phase": "🏆 Classificação Final",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/PSSAD/detalhes.aspx?oljioahohafnav87412=7663&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Em Andamento",
+    "edital": "002/06/2025",
+    "unidade": "Faculdade de Tecnologia de São Paulo",
+    "cidade": "São Paulo ÁREA DE ATUAÇÃO: Elétrica",
+    "disciplina": "",
+    "found_name": false
   }
 }
