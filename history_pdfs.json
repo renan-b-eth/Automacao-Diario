@@ -31853,5 +31853,49 @@
     "cidade": "Itú",
     "disciplina": "INTEGRAÇÃO E ENTREGA CONTÍNUA (DEVOPS)",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\19\\019-03-2026-pss-EDITALDEABERTURAhenrique.santos09-03-202615h01min51s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=15186&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Inscrições Abertas",
+    "edital": "019/03/2026",
+    "unidade": "Escola Técnica Estadual Doutor Adail Nunes da Silva",
+    "cidade": "Taquaritinga",
+    "disciplina": "(09)_LÍNGUA INGLESA (BNCC/ ETIM / MTEC / AMS / EM COM ÊNFASES)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\19\\019-04-2026-pss-EDITALDEABERTURAhenrique.santos09-03-202615h10min01s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=15189&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Inscrições Abertas",
+    "edital": "019/04/2026",
+    "unidade": "Escola Técnica Estadual Doutor Adail Nunes da Silva",
+    "cidade": "Taquaritinga",
+    "disciplina": "(11)_MATEMÁTICA (BNCC/ ETIM / MTEC / EM COM ÊNFASES)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\149\\149-03-2025-PSS-CONVOCAO-1henrique.santos09-03-202611h48min37s.docx": {
+    "name": "PSS-CONVOCAÇÃO - 1 - NORMAL",
+    "phase": "📞 Convocação",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=3095&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Em Andamento",
+    "edital": "149/03/2025",
+    "unidade": "Escola Técnica Estadual Professor André Bogasian",
+    "cidade": "Osasco",
+    "disciplina": "LÍNGUA INGLESA (BNCC/ ETIM / MTEC / AMS / EM COM ÊNFASES)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\6\\006-05-2026-PSSAD-EDITALDEABERTURAdanielle.ferreira09-03-202608h40min32s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/PSSAD/detalhes.aspx?oljioahohafnav87412=14705&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Inscrições Abertas",
+    "edital": "006/05/2026",
+    "unidade": "Escola Técnica Estadual Polivalente de Americana",
+    "cidade": "Americana ÁREA DE ATUAÇÃO: MECÂNICA",
+    "disciplina": "",
+    "found_name": false
   }
 }
