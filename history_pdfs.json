@@ -39166,5 +39166,27 @@
     "cidade": "Americana ÁREA DE ATUAÇÃO: INFORMÁTICA",
     "disciplina": "",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSS\\67\\067-12-2026-pss-EDITALDEABERTURAgiovana.silva18-03-202614h36min00s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/ETEC/PSS/DetalhesPSS.aspx?oljioahohafnav87412=15485&miji431dqd",
+    "listing": "ETEC – Processo Seletivo Docente – Inscrições Abertas",
+    "edital": "067/12/2026",
+    "unidade": "Escola Técnica Estadual João Belarmino",
+    "cidade": "Amparo",
+    "disciplina": "DESENHO BÁSICO APLICADO A EDIFICAÇÕES",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/ETEC\\CPD\\8\\008-01-2026-CPD-REDUCAO-ISENCAO23-03-202614h12min.pdf": {
+    "name": "RESULTADO DAS SOLICITAÇÕES DE REDUÇÃO OU ISENÇÃO DA TAXA DE INSCRIÇÃO",
+    "phase": "💰 Resultado Redução/Isenção de Taxa",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/ETEC/CPD/detalhes.aspx?oljioahohafnav87412=11910&miji431dqd",
+    "listing": "ETEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "008/01/2026",
+    "unidade": "Escola Técnica Estadual Vasco Antonio Venchiarutti",
+    "cidade": "Jundiaí",
+    "disciplina": "(02)_Biologia (BNCC/ ETIM / MTec / EM com Ênfases) HABILITAÇÃO: ENSINO MÉDIO (BNCC/ ETIM/ MTEC/ EM COM ÊNFASES/ ITINERÁRIOS FORMATIVOS/ PD)",
+    "found_name": false
   }
 }
