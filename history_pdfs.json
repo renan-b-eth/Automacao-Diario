@@ -39364,5 +39364,23 @@
     "cidade": "São Bernardo do Campo",
     "disciplina": "História (BNC/ BNCC/ ETIM / MTec / EM com Ênfases) HABILITAÇÃO: ENSINO MÉDIO (BNCC/ ETIM/ MTEC/ EM COM ÊNFASES/ ITINERÁRIOS FORMATIVOS/ PD)",
     "found_name": false
+  },
+  "doe:e75c1786-17be-42cb-322c-08de898f44b6": {
+    "source": "DOE-SP",
+    "title": "EDITAL DIVERSOS Nº 05.01, DE 24 DE MARÇO DE 2026",
+    "date": "2026-03-25",
+    "hierarchy": "Executivo > Atos de Gestão e Despesas > Secretaria de Ciência, Tecnologia e Inovação > Centro Estadual de Educação Tecnológica Paula Souza",
+    "url": "https://www.doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/edital-diversos-n-0501-de-24-de-marco-de-2026-2026032413141461728867",
+    "matches": 1,
+    "found_name": true
+  },
+  "doe:ab7f0efe-58ba-4e1f-871b-08de84e6e62d": {
+    "source": "DOE-SP",
+    "title": "EDITAL DIVERSOS Nº 10.01, DE 24 DE MARÇO DE 2026",
+    "date": "2026-03-25",
+    "hierarchy": "Executivo > Atos de Gestão e Despesas > Secretaria de Ciência, Tecnologia e Inovação > Centro Estadual de Educação Tecnológica Paula Souza",
+    "url": "https://www.doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/edital-diversos-n-1001-de-24-de-marco-de-2026-2026032413141461730351",
+    "matches": 1,
+    "found_name": true
   }
 }
