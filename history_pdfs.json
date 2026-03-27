@@ -40460,5 +40460,27 @@
     "cidade": "São Paulo",
     "disciplina": "CÁLCULO II HABILITAÇÃO: FABRICAÇÃO MECÂNICA",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/FATEC\\CPD\\2\\002-05-2026-CPD-REDUCAO-ISENCAO27-03-202611h04min.pdf": {
+    "name": "RESULTADO DAS SOLICITAÇÕES DE REDUÇÃO OU ISENÇÃO DA TAXA DE INSCRIÇÃO",
+    "phase": "💰 Resultado Redução/Isenção de Taxa",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/FATEC/CPD/detalhes.aspx?oljioahohafnav87412=13441&miji431dqd",
+    "listing": "FATEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "002/05/2026",
+    "unidade": "Faculdade de Tecnologia de São Paulo",
+    "cidade": "São Paulo",
+    "disciplina": "GESTÃO EM SERVIÇOS DE ALIMENTAÇÃO - (OPERACIONAL) HABILITAÇÃO: GESTÃO DE EMPREENDIMENTOS GASTRONÔMICOS",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/FATEC\\CPD\\2\\002-07-2026-CPD-REDUCAO-ISENCAO27-03-202610h58min.pdf": {
+    "name": "RESULTADO DAS SOLICITAÇÕES DE REDUÇÃO OU ISENÇÃO DA TAXA DE INSCRIÇÃO",
+    "phase": "💰 Resultado Redução/Isenção de Taxa",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/FATEC/CPD/detalhes.aspx?oljioahohafnav87412=13443&miji431dqd",
+    "listing": "FATEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "002/07/2026",
+    "unidade": "Faculdade de Tecnologia de São Paulo",
+    "cidade": "São Paulo",
+    "disciplina": "CULTURA GASTRONOMICA HABILITAÇÃO: GESTÃO DE EMPREENDIMENTOS GASTRONÔMICOS",
+    "found_name": false
   }
 }
