@@ -41219,5 +41219,14 @@
     "cidade": "Americana ÁREA DE ATUAÇÃO: QUÍMICA",
     "disciplina": "",
     "found_name": false
+  },
+  "doe:49ed3a86-9476-41a0-b457-08de8ba90c9c": {
+    "source": "DOE-SP",
+    "title": "EDITAL Nº 07.01, DE 30 DE MARÇO DE 2026",
+    "date": "2026-03-31",
+    "hierarchy": "Executivo > Atos de Gestão e Despesas > Secretaria de Ciência, Tecnologia e Inovação > Centro Estadual de Educação Tecnológica Paula Souza",
+    "url": "https://www.doe.sp.gov.br/executivo/secretaria-de-ciencia-tecnologia-e-inovacao/edital-n-0701-de-30-de-marco-de-2026-2026033013141461742937",
+    "matches": 1,
+    "found_name": true
   }
 }
