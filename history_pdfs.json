@@ -41998,5 +41998,60 @@
     "cidade": "São Paulo",
     "disciplina": "Matemática (BNC/ BNCC/ ETIM / MTec / EM com Ênfases) HABILITAÇÃO: ENSINO MÉDIO (BNCC/ ETIM/ MTEC/ EM COM ÊNFASES/ ITINERÁRIOS FORMATIVOS/ PD)",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoETEC\\CPD\\11\\011-01-2026-CPD-ALTERACAOCOMISSAO30-03-202615h58minnicole.pdf": {
+    "name": "CPD-ALTERAÇÃO DA COMISSÃO ESPECIAL",
+    "phase": "🔀 Alteração da Comissão",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/ETEC/CPD/detalhes.aspx?oljioahohafnav87412=11937&miji431dqd",
+    "listing": "ETEC – Concurso Público Docente – Em Andamento",
+    "edital": "011/01/2026",
+    "unidade": "Escola Técnica Estadual Jorge Street",
+    "cidade": "São Caetano do Sul",
+    "disciplina": "(03)_Educação Física (BNCC/ ETIM / MTec / EM com Ênfases) HABILITAÇÃO: ENSINO MÉDIO (BNCC/ ETIM/ MTEC/ EM COM ÊNFASES/ ITINERÁRIOS FORMATIVOS/ PD)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoETEC\\CPD\\11\\011-02-2026-CPD-ALTERACAOCOMISSAO30-03-202615h59minnicole.pdf": {
+    "name": "CPD-ALTERAÇÃO DA COMISSÃO ESPECIAL",
+    "phase": "🔀 Alteração da Comissão",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/ETEC/CPD/detalhes.aspx?oljioahohafnav87412=11939&miji431dqd",
+    "listing": "ETEC – Concurso Público Docente – Em Andamento",
+    "edital": "011/02/2026",
+    "unidade": "Escola Técnica Estadual Jorge Street",
+    "cidade": "São Caetano do Sul",
+    "disciplina": "(10)_Língua Portuguesa (BNCC/ ETIM / MTec / AMS / EM com Ênfases) HABILITAÇÃO: ENSINO MÉDIO (BNCC/ ETIM/ MTEC/ EM COM ÊNFASES/ ITINERÁRIOS FORMATIVOS/ PD)",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoFATEC\\CPD\\109\\109-05-2026-CPD-EDITALDEABERTURAnicole.oliveira01-04-202614h43min07s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/FATEC/CPD/detalhes.aspx?oljioahohafnav87412=13520&miji431dqd",
+    "listing": "FATEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "109/05/2026",
+    "unidade": "Faculdade de Tecnologia Doutor Thomaz Novelino",
+    "cidade": "Franca",
+    "disciplina": "ENGENHARIA DE SOFTWARE I HABILITAÇÃO: ANÁLISE E DESENVOLVIMENTO DE SISTEMAS",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoFATEC\\CPD\\109\\109-06-2026-CPD-EDITALDEABERTURAnicole.oliveira01-04-202614h47min14s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/FATEC/CPD/detalhes.aspx?oljioahohafnav87412=13523&miji431dqd",
+    "listing": "FATEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "109/06/2026",
+    "unidade": "Faculdade de Tecnologia Doutor Thomaz Novelino",
+    "cidade": "Franca",
+    "disciplina": "PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS II HABILITAÇÃO: DESENVOLVIMENTO DE SOFTWARE MULTIPLATAFORMA",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/GerenciadoFATEC\\CPD\\111\\111-13-2026-CPD-EDITALDEABERTURAnicole.oliveira01-04-202614h52min38s.pdf": {
+    "name": "ABERTURA",
+    "phase": "📋 Edital de Abertura",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/FATEC/CPD/detalhes.aspx?oljioahohafnav87412=13540&miji431dqd",
+    "listing": "FATEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "111/13/2026",
+    "unidade": "Faculdade de Tecnologia da Zona Leste",
+    "cidade": "São Paulo",
+    "disciplina": "APRENDIZAGEM DE MÁQUINA HABILITAÇÃO: DESENVOLVIMENTO DE SOFTWARE MULTIPLATAFORMA",
+    "found_name": false
   }
 }
