@@ -42053,5 +42053,27 @@
     "cidade": "São Paulo",
     "disciplina": "APRENDIZAGEM DE MÁQUINA HABILITAÇÃO: DESENVOLVIMENTO DE SOFTWARE MULTIPLATAFORMA",
     "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/FATEC\\CPD\\5\\005-10-2026-CPD-REDUCAO-ISENCAO02-04-202611h21min.pdf": {
+    "name": "RESULTADO DAS SOLICITAÇÕES DE REDUÇÃO OU ISENÇÃO DA TAXA DE INSCRIÇÃO",
+    "phase": "💰 Resultado Redução/Isenção de Taxa",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/SelecaoPublica/FATEC/CPD/detalhes.aspx?oljioahohafnav87412=13484&miji431dqd",
+    "listing": "FATEC – Concurso Público Docente – Inscrições Abertas",
+    "edital": "005/10/2026",
+    "unidade": "Faculdade de Tecnologia Rubens Lara",
+    "cidade": "Santos",
+    "disciplina": "GESTÃO DA QUALIDADE APLICADO EM PORTOS HABILITAÇÃO: GESTÃO PORTUÁRIA",
+    "found_name": false
+  },
+  "https://urhsistemas.cps.sp.gov.br/dgsdad/dgsdad/Gerenciado\\PSSAD\\2\\002-04-2026-PSSAD-DEFCOMPPIeduardo.santos01-04-202614h22min57s.docx": {
+    "name": "PSSAD-DEFERIMENTO COM PPI",
+    "phase": "✅ Deferimento/Indeferimento de Inscrições",
+    "detail_page": "https://urhsistemas.cps.sp.gov.br/dgsdad/selecaopublica/PSSAD/detalhes.aspx?oljioahohafnav87412=7664&miji431dqd",
+    "listing": "PSSAD – Auxiliar de Docente – Em Andamento",
+    "edital": "002/04/2026",
+    "unidade": "Faculdade de Tecnologia de São Paulo",
+    "cidade": "São Paulo ÁREA DE ATUAÇÃO: Mecânica",
+    "disciplina": "",
+    "found_name": false
   }
 }
