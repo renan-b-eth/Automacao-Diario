@@ -3,7 +3,7 @@ Automação Diária - Escolas Públicas
 API Serverless para Vercel
 
 Author: Renan Bezerra
-Version: 2.0.0
+Version: 2.0.1 - Fixed for Vercel
 
 Projects:
 - Rendey Class
@@ -13,15 +13,16 @@ Projects:
 
 import os
 import hashlib
+
+# Fix path for Vercel
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(BASE_DIR, 'database.db')
+
 from flask import Flask, render_template, redirect, url_for, session, request, flash
 
 # Create Flask app
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'renan_bezerra_automacao_2024_secret')
-
-# Database path
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, 'database.db')
 
 
 def get_db_connection():
@@ -35,6 +36,11 @@ def get_db_connection():
 def init_database():
     """Inicializa o banco de dados"""
     import sqlite3
+    
+    # Create database file if it doesn't exist
+    if not os.path.exists(DB_PATH):
+        open(DB_PATH, 'a').close()
+    
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
@@ -87,7 +93,7 @@ def init_database():
             url TEXT,
             phase TEXT,
             status TEXT,
-            found_name BOOLEAN DEFAULT 0,
+            found_name INTEGER DEFAULT 0,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
@@ -114,8 +120,11 @@ def init_database():
     conn.close()
 
 
-# Initialize DB
-init_database()
+# Initialize DB at module load
+try:
+    init_database()
+except Exception as e:
+    print(f"Database init error: {e}")
 
 
 def hash_password(password):
@@ -162,26 +171,29 @@ def login():
             flash('Por favor, preencha todos os campos.', 'danger')
             return render_template('login.html')
 
-        conn = get_db_connection()
-        cursor = conn.cursor()
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
 
-        password_hash = hash_password(password)
-        cursor.execute(
-            "SELECT id, username, name, role FROM users WHERE username = ? AND password = ?",
-            (username, password_hash)
-        )
-        user = cursor.fetchone()
-        conn.close()
+            password_hash = hash_password(password)
+            cursor.execute(
+                "SELECT id, username, name, role FROM users WHERE username = ? AND password = ?",
+                (username, password_hash)
+            )
+            user = cursor.fetchone()
+            conn.close()
 
-        if user:
-            session['user_id'] = user['id']
-            session['username'] = user['username']
-            session['user_name'] = user['name']
-            session['user_role'] = user['role']
-            flash(f'Bem-vindo, {user["name"]}!', 'success')
-            return redirect(url_for('dashboard'))
-        else:
-            flash('Usuário ou senha incorretos.', 'danger')
+            if user:
+                session['user_id'] = user['id']
+                session['username'] = user['username']
+                session['user_name'] = user['name']
+                session['user_role'] = user['role']
+                flash(f'Bem-vindo, {user["name"]}!', 'success')
+                return redirect(url_for('dashboard'))
+            else:
+                flash('Usuário ou senha incorretos.', 'danger')
+        except Exception as e:
+            flash(f'Erro ao fazer login: {str(e)}', 'danger')
 
     return render_template('login.html')
 
@@ -199,25 +211,30 @@ def dashboard():
     user_role = session.get('user_role', '')
     user_name = session.get('user_name', '')
 
-    conn = get_db_connection()
     stats = {}
+    recent_processes = []
 
-    cursor = conn.cursor()
-    cursor.execute("SELECT COUNT(*) as count FROM teachers")
-    stats['total_teachers'] = cursor.fetchone()['count']
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
 
-    cursor.execute("SELECT COUNT(*) as count FROM processes")
-    stats['total_processes'] = cursor.fetchone()['count']
+        cursor.execute("SELECT COUNT(*) as count FROM teachers")
+        stats['total_teachers'] = cursor.fetchone()[0]
 
-    cursor.execute("""
-        SELECT source, title, phase, created_at
-        FROM processes
-        ORDER BY created_at DESC
-        LIMIT 10
-    """)
-    recent_processes = cursor.fetchall()
+        cursor.execute("SELECT COUNT(*) as count FROM processes")
+        stats['total_processes'] = cursor.fetchone()[0]
 
-    conn.close()
+        cursor.execute("""
+            SELECT source, title, phase, created_at
+            FROM processes
+            ORDER BY created_at DESC
+            LIMIT 10
+        """)
+        recent_processes = cursor.fetchall()
+
+        conn.close()
+    except Exception as e:
+        print(f"Dashboard error: {e}")
 
     return render_template(
         'dashboard.html',
@@ -232,39 +249,42 @@ def dashboard():
 @login_required
 @role_required(['goe', 'diretor'])
 def horarios():
-    conn = get_db_connection()
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        SELECT t.id, t.code, t.name, t.discipline,
-               s.day_of_week, s.period, s.class_name, s.room
-        FROM teachers t
-        LEFT JOIN schedules s ON t.id = s.teacher_id
-        ORDER BY t.name, s.day_of_week, s.period
-    """)
-
-    teachers_data = cursor.fetchall()
-
     teachers = {}
-    for row in teachers_data:
-        teacher_id = row['id']
-        if teacher_id not in teachers:
-            teachers[teacher_id] = {
-                'id': teacher_id,
-                'code': row['code'],
-                'name': row['name'],
-                'discipline': row['discipline'],
-                'schedules': []
-            }
-        if row['day_of_week']:
-            teachers[teacher_id]['schedules'].append({
-                'day': row['day_of_week'],
-                'period': row['period'],
-                'class': row['class_name'],
-                'room': row['room']
-            })
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
 
-    conn.close()
+        cursor.execute("""
+            SELECT t.id, t.code, t.name, t.discipline,
+                   s.day_of_week, s.period, s.class_name, s.room
+            FROM teachers t
+            LEFT JOIN schedules s ON t.id = s.teacher_id
+            ORDER BY t.name, s.day_of_week, s.period
+        """)
+
+        teachers_data = cursor.fetchall()
+
+        for row in teachers_data:
+            teacher_id = row['id']
+            if teacher_id not in teachers:
+                teachers[teacher_id] = {
+                    'id': teacher_id,
+                    'code': row['code'],
+                    'name': row['name'],
+                    'discipline': row['discipline'],
+                    'schedules': []
+                }
+            if row['day_of_week']:
+                teachers[teacher_id]['schedules'].append({
+                    'day': row['day_of_week'],
+                    'period': row['period'],
+                    'class': row['class_name'],
+                    'room': row['room']
+                })
+
+        conn.close()
+    except Exception as e:
+        print(f"Horarios error: {e}")
 
     return render_template('horarios.html', teachers=teachers)
 
@@ -273,65 +293,69 @@ def horarios():
 @login_required
 @role_required(['goe', 'diretor'])
 def professores():
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    teachers = []
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
 
-    if request.method == 'POST':
-        action = request.form.get('action')
+        if request.method == 'POST':
+            action = request.form.get('action')
 
-        if action == 'add':
-            code = request.form.get('code', '').strip()
-            name = request.form.get('name', '').strip()
-            discipline = request.form.get('discipline', '').strip()
-            email = request.form.get('email', '').strip()
-            phone = request.form.get('phone', '').strip()
+            if action == 'add':
+                code = request.form.get('code', '').strip()
+                name = request.form.get('name', '').strip()
+                discipline = request.form.get('discipline', '').strip()
+                email = request.form.get('email', '').strip()
+                phone = request.form.get('phone', '').strip()
 
-            if code and name:
-                try:
-                    cursor.execute("""
-                        INSERT INTO teachers (code, name, discipline, email, phone)
-                        VALUES (?, ?, ?, ?, ?)
-                    """, (code, name, discipline, email, phone))
-                    conn.commit()
-                    flash('Professor adicionado com sucesso!', 'success')
-                except Exception as e:
-                    flash(f'Erro ao adicionar professor: {e}', 'danger')
+                if code and name:
+                    try:
+                        cursor.execute("""
+                            INSERT INTO teachers (code, name, discipline, email, phone)
+                            VALUES (?, ?, ?, ?, ?)
+                        """, (code, name, discipline, email, phone))
+                        conn.commit()
+                        flash('Professor adicionado com sucesso!', 'success')
+                    except Exception as e:
+                        flash(f'Erro ao adicionar professor: {e}', 'danger')
 
-        elif action == 'edit':
-            teacher_id = request.form.get('teacher_id')
-            code = request.form.get('code', '').strip()
-            name = request.form.get('name', '').strip()
-            discipline = request.form.get('discipline', '').strip()
-            email = request.form.get('email', '').strip()
-            phone = request.form.get('phone', '').strip()
+            elif action == 'edit':
+                teacher_id = request.form.get('teacher_id')
+                code = request.form.get('code', '').strip()
+                name = request.form.get('name', '').strip()
+                discipline = request.form.get('discipline', '').strip()
+                email = request.form.get('email', '').strip()
+                phone = request.form.get('phone', '').strip()
 
-            if teacher_id and code and name:
-                try:
-                    cursor.execute("""
-                        UPDATE teachers
-                        SET code = ?, name = ?, discipline = ?, email = ?, phone = ?
-                        WHERE id = ?
-                    """, (code, name, discipline, email, phone, teacher_id))
-                    conn.commit()
-                    flash('Professor atualizado com sucesso!', 'success')
-                except Exception as e:
-                    flash(f'Erro ao atualizar professor: {e}', 'danger')
+                if teacher_id and code and name:
+                    try:
+                        cursor.execute("""
+                            UPDATE teachers
+                            SET code = ?, name = ?, discipline = ?, email = ?, phone = ?
+                            WHERE id = ?
+                        """, (code, name, discipline, email, phone, teacher_id))
+                        conn.commit()
+                        flash('Professor atualizado com sucesso!', 'success')
+                    except Exception as e:
+                        flash(f'Erro ao atualizar professor: {e}', 'danger')
 
-        elif action == 'delete':
-            teacher_id = request.form.get('teacher_id')
-            if teacher_id:
-                try:
-                    cursor.execute("DELETE FROM schedules WHERE teacher_id = ?", (teacher_id,))
-                    cursor.execute("DELETE FROM teachers WHERE id = ?", (teacher_id,))
-                    conn.commit()
-                    flash('Professor excluído com sucesso!', 'success')
-                except Exception as e:
-                    flash(f'Erro ao excluir professor: {e}', 'danger')
+            elif action == 'delete':
+                teacher_id = request.form.get('teacher_id')
+                if teacher_id:
+                    try:
+                        cursor.execute("DELETE FROM schedules WHERE teacher_id = ?", (teacher_id,))
+                        cursor.execute("DELETE FROM teachers WHERE id = ?", (teacher_id,))
+                        conn.commit()
+                        flash('Professor excluído com sucesso!', 'success')
+                    except Exception as e:
+                        flash(f'Erro ao excluir professor: {e}', 'danger')
 
-    cursor.execute("SELECT * FROM teachers ORDER BY name")
-    teachers = cursor.fetchall()
+        cursor.execute("SELECT * FROM teachers ORDER BY name")
+        teachers = cursor.fetchall()
 
-    conn.close()
+        conn.close()
+    except Exception as e:
+        flash(f'Erro ao carregar professores: {e}', 'danger')
 
     return render_template('professores.html', teachers=teachers)
 
@@ -339,97 +363,105 @@ def professores():
 @app.route('/processos')
 @login_required
 def processos():
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    processes = []
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
 
-    cursor.execute("""
-        SELECT * FROM processes
-        ORDER BY created_at DESC
-    """)
-    processes = cursor.fetchall()
+        cursor.execute("""
+            SELECT * FROM processes
+            ORDER BY created_at DESC
+        """)
+        processes = cursor.fetchall()
 
-    conn.close()
+        conn.close()
+    except Exception as e:
+        print(f"Processos error: {e}")
 
-    return render_template('processos.html', processes=processes)
+    return render_template('processos.html', processes=processos)
 
 
 @app.route('/usuarios')
 @login_required
 @role_required(['goe'])
 def usuarios():
-    conn = get_db_connection()
-    cursor = conn.cursor()
+    users = []
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
 
-    if request.method == 'POST':
-        action = request.form.get('action')
+        if request.method == 'POST':
+            action = request.form.get('action')
 
-        if action == 'add':
-            username = request.form.get('username', '').strip()
-            password = request.form.get('password', '').strip()
-            name = request.form.get('name', '').strip()
-            role = request.form.get('role', '').strip()
-            email = request.form.get('email', '').strip()
+            if action == 'add':
+                username = request.form.get('username', '').strip()
+                password = request.form.get('password', '').strip()
+                name = request.form.get('name', '').strip()
+                role = request.form.get('role', '').strip()
+                email = request.form.get('email', '').strip()
 
-            if username and password and name and role:
-                password_hash = hash_password(password)
-                try:
-                    cursor.execute("""
-                        INSERT INTO users (username, password, name, role, email)
-                        VALUES (?, ?, ?, ?, ?)
-                    """, (username, password_hash, name, role, email))
-                    conn.commit()
-                    flash('Usuário criado com sucesso!', 'success')
-                except Exception as e:
-                    flash(f'Erro ao criar usuário: {e}', 'danger')
+                if username and password and name and role:
+                    password_hash = hash_password(password)
+                    try:
+                        cursor.execute("""
+                            INSERT INTO users (username, password, name, role, email)
+                            VALUES (?, ?, ?, ?, ?)
+                        """, (username, password_hash, name, role, email))
+                        conn.commit()
+                        flash('Usuário criado com sucesso!', 'success')
+                    except Exception as e:
+                        flash(f'Erro ao criar usuário: {e}', 'danger')
 
-        elif action == 'edit':
-            user_id = request.form.get('user_id')
-            username = request.form.get('username', '').strip()
-            name = request.form.get('name', '').strip()
-            role = request.form.get('role', '').strip()
-            email = request.form.get('email', '').strip()
+            elif action == 'edit':
+                user_id = request.form.get('user_id')
+                username = request.form.get('username', '').strip()
+                name = request.form.get('name', '').strip()
+                role = request.form.get('role', '').strip()
+                email = request.form.get('email', '').strip()
 
-            if user_id and username and name and role:
-                try:
-                    cursor.execute("""
-                        UPDATE users
-                        SET username = ?, name = ?, role = ?, email = ?
-                        WHERE id = ?
-                    """, (username, name, role, email, user_id))
-                    conn.commit()
-                    flash('Usuário atualizado com sucesso!', 'success')
-                except Exception as e:
-                    flash(f'Erro ao atualizar usuário: {e}', 'danger')
+                if user_id and username and name and role:
+                    try:
+                        cursor.execute("""
+                            UPDATE users
+                            SET username = ?, name = ?, role = ?, email = ?
+                            WHERE id = ?
+                        """, (username, name, role, email, user_id))
+                        conn.commit()
+                        flash('Usuário atualizado com sucesso!', 'success')
+                    except Exception as e:
+                        flash(f'Erro ao atualizar usuário: {e}', 'danger')
 
-        elif action == 'change_password':
-            user_id = request.form.get('user_id')
-            new_password = request.form.get('new_password', '').strip()
+            elif action == 'change_password':
+                user_id = request.form.get('user_id')
+                new_password = request.form.get('new_password', '').strip()
 
-            if user_id and new_password:
-                password_hash = hash_password(new_password)
-                try:
-                    cursor.execute("""
-                        UPDATE users SET password = ? WHERE id = ?
-                    """, (password_hash, user_id))
-                    conn.commit()
-                    flash('Senha alterada com sucesso!', 'success')
-                except Exception as e:
-                    flash(f'Erro ao alterar senha: {e}', 'danger')
+                if user_id and new_password:
+                    password_hash = hash_password(new_password)
+                    try:
+                        cursor.execute("""
+                            UPDATE users SET password = ? WHERE id = ?
+                        """, (password_hash, user_id))
+                        conn.commit()
+                        flash('Senha alterada com sucesso!', 'success')
+                    except Exception as e:
+                        flash(f'Erro ao alterar senha: {e}', 'danger')
 
-        elif action == 'delete':
-            user_id = request.form.get('user_id')
-            if user_id and int(user_id) != session['user_id']:
-                try:
-                    cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
-                    conn.commit()
-                    flash('Usuário excluído com sucesso!', 'success')
-                except Exception as e:
-                    flash(f'Erro ao excluir usuário: {e}', 'danger')
+            elif action == 'delete':
+                user_id = request.form.get('user_id')
+                if user_id and int(user_id) != session.get('user_id', 0):
+                    try:
+                        cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
+                        conn.commit()
+                        flash('Usuário excluído com sucesso!', 'success')
+                    except Exception as e:
+                        flash(f'Erro ao excluir usuário: {e}', 'danger')
 
-    cursor.execute("SELECT id, username, name, role, email, created_at FROM users ORDER BY name")
-    users = cursor.fetchall()
+        cursor.execute("SELECT id, username, name, role, email, created_at FROM users ORDER BY name")
+        users = cursor.fetchall()
 
-    conn.close()
+        conn.close()
+    except Exception as e:
+        flash(f'Erro ao carregar usuários: {e}', 'danger')
 
     return render_template('usuarios.html', users=users)
 
