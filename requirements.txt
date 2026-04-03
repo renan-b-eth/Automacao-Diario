@@ -1,0 +1,18 @@
+# Automação Diária - ETEC
+# Requisitos do Sistema
+
+# Framework Web
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# Banco de dados (já vem com Python)
+# SQLite3
+
+# Template engine (já vem com Flask)
+# Jinja2
+
+# Utilities
+python-dotenv==1.0.0
+
+# Opcional: Para desenvolvimento
+# gunicorn==21.2.0

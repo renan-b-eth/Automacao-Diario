@@ -1,0 +1,386 @@
+{% extends "base.html" %}
+
+{% block title %}Automação Diária - Escolas Públicas - Sistema de Gestão Escolar{% endblock %}
+
+{% block body %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold mb-4">
+                    <i class="bi bi-school"></i> Automação Diária
+                </h1>
+                <p class="lead mb-4">
+                    Sistema completo de automação e monitoramento para gestão de <strong>escolas públicas</strong>.
+                    Monitore processos seletivos, gerencie professores e mantenha o controle total da sua unidade.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('login') }}" class="btn btn-light btn-lg px-4">
+                        <i class="bi bi-box-arrow-in-right"></i> Acessar Sistema
+                    </a>
+                    <a href="#features" class="btn btn-outline-light btn-lg px-4">
+                        <i class="bi bi-info-circle"></i>Saiba Mais
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                <div class="position-relative">
+                    <div class="display-1 text-white-50">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <div class="position-absolute top-50 start-50 translate-middle">
+                        <div class="bg-white rounded-circle p-4 shadow-lg">
+                            <i class="bi bi-gear-fill display-4 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About the Developer -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center mb-4 mb-md-0">
+                <div class="position-relative d-inline-block">
+                    <div class="bg-gradient-primary rounded-circle p-1">
+                        <div class="bg-white rounded-circle p-1">
+                            <img src="https://site-renanbezerra.vercel.app/favicon.ico" alt="Renan Bezerra" 
+                                 style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;"
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #3182ce, #2c5282); display: none; align-items: center; justify-content: center;">
+                                <i class="bi bi-person-fill text-white" style="font-size: 60px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="display-6 fw-bold mb-3">
+                    <i class="bi bi-code-slash text-primary me-2"></i>Desenvolvido por Renan Bezerra
+                </h2>
+                <p class="lead text-muted">
+                    Programador, empreendedor e fundador de projetos inovadores para a educação pública.
+                </p>
+                <div class="row g-3 mt-3">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <div class="bg-primary bg-opacity-10 rounded p-2 me-3">
+                                <i class="bi bi-mortarboard text-primary"></i>
+                            </div>
+                            <div>
+                                <strong>Rendey Class</strong>
+                                <p class="mb-0 small text-muted">Plataforma educacional</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <div class="bg-success bg-opacity-10 rounded p-2 me-3">
+                                <i class="bi bi-lightbulb text-success"></i>
+                            </div>
+                            <div>
+                                <strong>EstaHub</strong>
+                                <p class="mb-0 small text-muted">Hub de tecnologia educacional</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <div class="bg-warning bg-opacity-10 rounded p-2 me-3">
+                                <i class="bi bi-trophy text-warning"></i>
+                            </div>
+                            <div>
+                                <strong>EStaTHon</strong>
+                                <p class="mb-0 small text-muted">Hackathon das Escolas Estaduais</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <div class="bg-info bg-opacity-10 rounded p-2 me-3">
+                                <i class="bi bi-globe text-info"></i>
+                            </div>
+                            <div>
+                                <strong>Site Pessoal</strong>
+                                <p class="mb-0 small text-muted">
+                                    <a href="https://site-renanbezerra.vercel.app/" target="_blank" class="text-decoration-none">
+                                        site-renanbezerra.vercel.app
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="icon bg-primary bg-opacity-10 text-primary">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="number mt-3">Professores</div>
+                    <div class="label">Cadastrados</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="icon bg-success bg-opacity-10 text-success">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <div class="number mt-3">Horários</div>
+                    <div class="label">Gerenciados</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="icon bg-warning bg-opacity-10 text-warning">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <div class="number mt-3">Processos</div>
+                    <div class="label">Monitorados</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-5" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Funcionalidades do Sistema</h2>
+            <p class="lead text-muted">Tudo que você precisa para gerenciar sua escola</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <h4>Autenticação Segura</h4>
+                    <p class="text-muted">
+                        Sistema de login com três níveis de acesso: GOE (Gestor), Diretor e Inspetor.
+                        Cada usuário tem permissões específicas para garantir a segurança.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-calendar3"></i>
+                    </div>
+                    <h4>Gestão de Horários</h4>
+                    <p class="text-muted">
+                        Organize e visualize os horários dos professores por dia da semana e período.
+                        Tudo de forma simples e intuitiva.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+                    <h4>Cadastro de Professores</h4>
+                    <p class="text-muted">
+                        Cadastre e gerencie professores com código, nome, disciplina, e-mail e telefone.
+                        Histórico completo de cada profissional.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-bell"></i>
+                    </div>
+                    <h4>Monitor de Concursos</h4>
+                    <p class="text-muted">
+                        Acompanhe automaticamente processos seletivos e concursos de diversas fontes.
+                        Não perca nenhuma oportunidade.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-journal-text"></i>
+                    </div>
+                    <h4>Histórico de Atividades</h4>
+                    <p class="text-muted">
+                        Registro completo de todas as operações realizadas no sistema.
+                        Transparência e controle total.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="feature-card h-100">
+                    <div class="icon-wrapper">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h4>Gestão de Usuários</h4>
+                    <p class="text-muted">
+                        O usuário GOE pode criar, editar e excluir usuários do sistema.
+                        Controle completo sobre quem acessa o sistema.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Como Funciona</h2>
+            <p class="lead text-muted">Sistema simples e eficiente</p>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="d-flex flex-column gap-4">
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary text-white rounded-circle p-3 me-3 flex-shrink-0" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <span class="fw-bold">1</span>
+                        </div>
+                        <div>
+                            <h5>Faça Login</h5>
+                            <p class="text-muted mb-0">Acesse o sistema com seu usuário e senha institucional.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary text-white rounded-circle p-3 me-3 flex-shrink-0" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <span class="fw-bold">2</span>
+                        </div>
+                        <div>
+                            <h5>Acesse o Dashboard</h5>
+                            <p class="text-muted mb-0">Veja estatísticas e overview do sistema conforme seu nível de acesso.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="bg-primary text-white rounded-circle p-3 me-3 flex-shrink-0" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <span class="fw-bold">3</span>
+                        </div>
+                        <div>
+                            <h5>Gerencie Recursos</h5>
+                            <p class="text-muted mb-0">Cadastre professores, visualize horários e acompanhe processos seletivos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center mt-5 mt-lg-0">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect fill='%23f7fafc' width='400' height='300'/%3E%3Crect x='50' y='50' width='300' height='200' rx='10' fill='white' stroke='%23e2e8f0' stroke-width='2'/%3E%3Crect x='70' y='70' width='260' height='30' rx='5' fill='%23edf2f7'/%3E%3Crect x='70' y='110' width='120' height='20' rx='3' fill='%23e2e8f0'/%3E%3Crect x='70' y='140' width='120' height='20' rx='3' fill='%23e2e8f0'/%3E%3Crect x='70' y='170' width='120' height='20' rx='3' fill='%23e2e8f0'/%3E%3Crect x='200' y='110' width='130' height='20' rx='3' fill='%23e2e8f0'/%3E%3Crect x='200' y='140' width='130' height='20' rx='3' fill='%23e2e8f0'/%3E%3Crect x='200' y='170' width='130' height='20' rx='3' fill='%23e2e8f0'/%3E%3C/svg%3E" alt="Dashboard Preview" class="img-fluid shadow-lg rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Roles Section -->
+<section class="py-5" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Níveis de Acesso</h2>
+            <p class="lead text-muted">Três perfis para diferentes necessidades</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-purple-100 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(128, 90, 213, 0.1);">
+                            <i class="bi bi-person-crown text-purple" style="font-size: 24px; color: #805ad5;"></i>
+                        </div>
+                        <h5 class="card-title">GOE</h5>
+                        <p class="card-text text-muted">Gestor de Organização Escolar</p>
+                        <ul class="list-unstyled text-start text-muted small">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Acesso total ao sistema</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Gerenciar usuários</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Cadastrar professores</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Visualizar relatórios</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-blue-100 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(49, 130, 206, 0.1);">
+                            <i class="bi bi-briefcase text-blue" style="font-size: 24px; color: #3182ce;"></i>
+                        </div>
+                        <h5 class="card-title">Diretor</h5>
+                        <p class="card-text text-muted">Diretor da Unidade</p>
+                        <ul class="list-unstyled text-start text-muted small">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Visualizar dashboard</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Gerenciar professores</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Ver horários</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Acompanhar processos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="bg-green-100 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px; background: rgba(56, 161, 105, 0.1);">
+                            <i class="bi bi-person-badge text-green" style="font-size: 24px; color: #38a169;"></i>
+                        </div>
+                        <h5 class="card-title">Inspetor</h5>
+                        <p class="card-text text-muted">Inspetor de Alunos</p>
+                        <ul class="list-unstyled text-start text-muted small">
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Visualizar dashboard</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Ver processos seletivos</li>
+                            <li><i class="bi bi-check-circle text-success me-2"></i>Acesso básico</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-3">Pronto para começar?</h2>
+        <p class="lead mb-4">Acesse o sistema agora mesmo e descubra todas as funcionalidades</p>
+        <a href="{{ url_for('login') }}" class="btn btn-light btn-lg px-5">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Fazer Login
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Automação Diária - Escolas Públicas</h5>
+                <p class="mb-0">Sistema de automação e monitoramento para gestão escolar</p>
+                <p class="small mt-2">
+                    <i class="bi bi-code-slash me-1"></i>Desenvolvido por 
+                    <a href="https://site-renanbezerra.vercel.app/" target="_blank" class="text-white text-decoration-none">
+                        <strong>Renan Bezerra</strong>
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p class="mb-0">&copy; 2024 Automação Diária. Todos os direitos reservados.</p>
+                <div class="mt-2">
+                    <a href="https://site-renanbezerra.vercel.app/" target="_blank" class="text-white me-3">
+                        <i class="bi bi-globe"></i> Site Pessoal
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}

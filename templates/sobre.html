@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre - Automação Diária ETEC{% endblock %}
+
+{% block body %}
+{% include 'dashboard.html' ignore missing %}
+
+<div class="page-container">
+    <div class="header">
+        <h4 class="mb-1"><i class="bi bi-info-circle me-2"></i>Sobre o Projeto</h4>
+        <small class="text-muted">Informações sobre o sistema de automação</small>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-rocket me-2"></i>O que é o Automação Diária?</h5>
+                    <p class="card-text">
+                        O <strong>Automação Diária - ETEC</strong> é um sistema completo de automação e monitoramento
+                        para gestão escolar desenvolvido especificamente para as Escolas Técnicas Estaduais (ETECs)
+                        do Centro Paula Souza.
+                    </p>
+                    <p class="card-text">
+                        O sistema surgiu da necessidade de automatizar tarefas rotineiras de gestão escolar,
+                        como o monitoramento de processos seletivos, gerenciamento de professores e
+                        visualização de horários.
+                    </p>
+
+                    <h5 class="card-title mt-4"><i class="bi bi-gear me-2"></i>Funcionalidades Principais</h5>
+                    <ul>
+                        <li>Monitoramento automático de concursos e processos seletivos</li>
+                        <li>Gestão de professores com cadastro completo</li>
+                        <li>Visualização de horários por dia e período</li>
+                        <li>Sistema de autenticação com três níveis de acesso</li>
+                        <li>Histórico de atividades e logs do sistema</li>
+                    </ul>
+
+                    <h5 class="card-title mt-4"><i class="bi bi-shield-check me-2"></i>Segurança</h5>
+                    <p class="card-text">
+                        O sistema utiliza criptografia de senhas (SHA-256) e controle de acesso baseado em roles.
+                        Cada usuário tem permissões específicas conforme seu nível de acesso.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="bi bi-people me-2"></i>Equipe</h5>
+                    <p class="card-text text-muted">
+                        Desenvolvido pela equipe de Automação da ETEC com foco em eficiência e praticidade.
+                    </p>
+                    <hr>
+                    <h5 class="card-title"><i class="bi bi-code-slash me-2"></i>Tecnologias</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-check text-success me-2"></i>Python (Flask)</li>
+                        <li><i class="bi bi-check text-success me-2"></i>SQLite</li>
+                        <li><i class="bi bi-check text-success me-2"></i>HTML/CSS/JS</li>
+                        <li><i class="bi bi-check text-success me-2"></i>Bootstrap 5</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+        <a href="{{ url_for('index') }}" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left me-2"></i>Voltar para a página inicial
+        </a>
+    </div>
+</div>
+
+<style>
+    .page-container { margin-left: 260px; padding: 30px; background: #f7fafc; min-height: 100vh; }
+    .header { background: white; padding: 20px 30px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+</style>
+{% endblock %}

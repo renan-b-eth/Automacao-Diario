@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Automação Diária ETEC{% endblock %}
+
+{% block extra_css %}
+<style>
+    .login-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #1a365d, #2c5282);
+        padding: 20px;
+    }
+
+    .login-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        max-width: 420px;
+        width: 100%;
+    }
+
+    .login-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .login-header .logo {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #3182ce, #2c5282);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 36px;
+        color: white;
+    }
+
+    .login-header h2 {
+        color: #1a365d;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .login-header p {
+        color: #718096;
+        font-size: 14px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #4a5568;
+        font-weight: 500;
+    }
+
+    .form-control {
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 14px;
+        transition: all 0.3s;
+    }
+
+    .form-control:focus {
+        border-color: #3182ce;
+        box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+    }
+
+    .btn-login {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #3182ce, #2c5282);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(49, 130, 206, 0.4);
+    }
+
+    .login-footer {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .login-footer a {
+        color: #3182ce;
+        text-decoration: none;
+    }
+
+    .login-footer a:hover {
+        text-decoration: underline;
+    }
+
+    .role-info {
+        background: #f7fafc;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .role-info h6 {
+        color: #1a365d;
+        margin-bottom: 10px;
+    }
+
+    .role-info ul {
+        margin: 0;
+        padding-left: 20px;
+        font-size: 13px;
+        color: #718096;
+    }
+
+    .role-info li {
+        margin-bottom: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="logo">
+                <i class="bi bi-building"></i>
+            </div>
+            <h2>Automação Diária</h2>
+            <p>ETEC - Sistema de Gestão Escolar</p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="username">
+                    <i class="bi bi-person me-2"></i>Usuário
+                </label>
+                <input type="text" class="form-control" id="username" name="username" 
+                       placeholder="Digite seu usuário" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    <i class="bi bi-key me-2"></i>Senha
+                </label>
+                <input type="password" class="form-control" id="password" name="password" 
+                       placeholder="Digite sua senha" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn-login">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Entrar
+            </button>
+        </form>
+
+        <div class="role-info">
+            <h6><i class="bi bi-info-circle me-2"></i>Credenciais de Acesso</h6>
+            <ul>
+                <li><strong>GOE:</strong> admin / admin123</li>
+                <li><strong>Diretor:</strong> diretor / diretor123</li>
+                <li><strong>Inspetor:</strong> inspetor / inspetor123</li>
+            </ul>
+        </div>
+
+        <div class="login-footer">
+            <a href="{{ url_for('index') }}">
+                <i class="bi bi-arrow-left me-1"></i>Voltar para a página inicial
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Horários - Automação Diária ETEC{% endblock %}
+
+{% block extra_css %}
+<style>
+    .page-container { margin-left: 260px; padding: 30px; background: #f7fafc; min-height: 100vh; }
+    .header { background: white; padding: 20px 30px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .schedule-grid { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    .day-header { background: linear-gradient(135deg, #1a365d, #2c5282); color: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+    .period-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .period-1 { background: #bee3f8; color: #2b6cb0; }
+    .period-2 { background: #c6f6d5; color: #276749; }
+    .period-3 { background: #feebc8; color: #c05621; }
+    .period-4 { background: #e9d8fd; color: #6b46c1; }
+    .period-5 { background: #fed7e2; color: #97266d; }
+    .period-6 { background: #e2e8f0; color: #4a5568; }
+    .schedule-item { padding: 12px; border-radius: 8px; margin-bottom: 10px; border-left: 4px solid #3182ce; background: #f7fafc; }
+    .empty-schedule { text-align: center; padding: 40px; color: #718096; }
+    .teacher-name { font-weight: 600; color: #1a365d; }
+    .class-info { font-size: 13px; color: #718096; }
+    .room-info { font-size: 12px; color: #a0aec0; }
+</style>
+{% endblock %}
+
+{% block body %}
+{% include 'dashboard.html' ignore missing %}
+
+<div class="page-container">
+    <div class="header">
+        <h4 class="mb-1"><i class="bi bi-calendar3 me-2"></i>Horários dos Professores</h4>
+        <small class="text-muted">Visualize a distribuição de aulas por dia e período</small>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if teachers %}
+    <div class="row">
+        {% for teacher_id, teacher in teachers.items() %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="schedule-grid">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary rounded-circle p-2 me-2" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 teacher-name">{{ teacher.name }}</h6>
+                        <small class="text-muted">{{ teacher.discipline or 'Sem disciplina' }}</small>
+                    </div>
+                </div>
+
+                {% if teacher.schedules %}
+                <div class="schedule-timeline">
+                    {% for schedule in teacher.schedules %}
+                    <div class="schedule-item">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="period-badge period-{{ schedule.period }}">P{{ schedule.period }}</span>
+                            {% if schedule.room %}
+                            <span class="room-info"><i class="bi bi-door-open me-1"></i>{{ schedule.room }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="class-info">{{ schedule.class }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="empty-schedule">
+                    <i class="bi bi-calendar-x display-4 mb-2"></i>
+                    <p class="mb-0">Nenhum horário cadastrado</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <i class="bi bi-calendar3 display-1 text-muted"></i>
+        <h4 class="mt-3 text-muted">Nenhum professor cadastrado</h4>
+        <p class="text-muted">Cadastre professores primeiro para visualizar os horários.</p>
+        <a href="{{ url_for('professores') }}" class="btn btn-primary mt-2">Ir para Professores</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
